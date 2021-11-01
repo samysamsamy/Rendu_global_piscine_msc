@@ -3,15 +3,17 @@ services:
   db:
     container_name: DB_Postgresql
     env_file:
-      - .env
+      - db.env
     image: 'postgres:11-alpine'
     restart: always
     ports:
-      - '4002:4002'
+      - '5433:5433'
     volumes:
       - 'pgdata:/var/lib/postgresql/data'
   api:
     container_name: API_container
+    env_file:
+      - api.env
     build: 
       context: ./timemanager_api/
     depends_on:
@@ -19,7 +21,7 @@ services:
     environment:
       MIX_ENV: dev
     env_file:
-      - .env
+      - api.env
     ports:
       - '4000:4000'
   front:
