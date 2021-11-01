@@ -30,9 +30,7 @@ services:
       - api
     environment:
       MIX_ENV: dev
-    env_file:
-      - .env
     ports:
-      - '4001:40001'
+      - '8080:8080'
 volumes:
   pgdata: {}

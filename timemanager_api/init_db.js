@@ -1,8 +1,8 @@
 const { Client } = require('pg')
 
 const client = new Client()
-const tables = ["table1", "table2", "table3", "table4"];
-const dbName = "dbName";
+const tables = ["clocks", "schema_migrations", "tasks", "users", "workingtimes"];
+const dbName = "timemanager_api_dev";
 
 client.connect()
 .then(()=> {

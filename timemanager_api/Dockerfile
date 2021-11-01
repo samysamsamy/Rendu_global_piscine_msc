@@ -1,11 +1,18 @@
-FROM elixir:1.8-otp-22
+FROM elixir:latest
+COPY ./ /app
+WORKDIR /app/
 
-WORKDIR /
-COPY /* ./
+RUN apt-get update
+RUN apt-get install -y postgresql-client
+RUN apt-get install -y inotify-tools
+RUN apt-get install -y nodejs
+RUN apt-get upgrade -y
+RUN curl -L https://npmjs.org/install.sh | sh
 
-
-RUN mix local.hex
-RUN mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
+RUN mix local.hex --force
+RUN mix archive.install hex phx_new 1.5.3 --force
 RUN mix deps.get
 
-CMD mix deps.get && mix phx.server
+RUN npm install
+
+CMD ./entrypoints.sh
