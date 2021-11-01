@@ -1,0 +1,30 @@
+# The directory Mix will write compiled artifacts to.
+timemanager_api/_build/
+
+# If you run "mix test --cover", coverage assets end up here.
+timemanager_api/cover/
+
+# The directory Mix downloads your dependencies sources to.
+timemanager_api/deps/
+
+# Where 3rd-party dependencies like ExDoc output generated docs.
+timemanager_api/doc/
+
+# Ignore .fetch files in case you like to edit your project deps locally.
+timemanager_api/.fetch
+
+# If the VM crashes, it generates a dump, let's ignore it too.
+timemanager_api/erl_crash.dump
+
+# Also ignore archive artifacts (built via "mix archive.build").
+timemanager_api/*.ez
+
+# Ignore package tarball (built via "mix hex.build").
+timemanager_api/timemanager_api-*.tar
+
+# Since we are building assets from assets/,
+# we ignore priv/static. You may want to comment
+# this depending on your deployment strategy.
+timemanager_api/priv/static/
+
+.env

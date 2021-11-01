@@ -1,0 +1,26 @@
+{
+  "name": "rendu_global_piscine_msc",
+  "version": "1.0.0",
+  "description": "To start your Phoenix server:",
+  "main": "init_db.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samysamsamy/Rendu_global_piscine_msc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samysamsamy/Rendu_global_piscine_msc/issues"
+  },
+  "homepage": "https://github.com/samysamsamy/Rendu_global_piscine_msc#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
+    "pg": "^8.7.1"
+  }
+}
