@@ -14,6 +14,4 @@ RUN mix local.rebar --force
 RUN mix archive.install hex phx_new 1.5.3 --force
 RUN mix deps.get
 
-RUN npm install
-
 CMD ./entrypoints.sh
