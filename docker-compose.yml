@@ -14,23 +14,24 @@ services:
     container_name: API_container
     env_file:
       - .env
-    build: 
-      context: ./timemanager_api/
+    build: ./timemanager_api
     depends_on:
       - db
     environment:
       MIX_ENV: dev
     ports:
       - '4000:4000'
-  front:
-    container_name: Front_container
-    build: 
-      context: ./front/
-    depends_on:
-      - api
-    environment:
-      MIX_ENV: dev
-    ports:
-      - '8080:8080'
+    volumes:
+      - './tm_api:/app'
+  #front:
+   # container_name: Front_container
+   # build: 
+   #   context: ./front/
+  #  environment:
+  #    MIX_ENV: dev
+  #  ports:
+  #    - '8080:8080'
+  #  volumes:
+  #    - './tm_front:/app'
 volumes:
-  pgdata: {}
+  pgdata: 
