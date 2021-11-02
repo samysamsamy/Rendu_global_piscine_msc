@@ -1,5 +1,5 @@
 <template>
-  <v-card width="100%" height="97%">
+  <v-card width="100%" height="98%">
     <v-container fill-height fluid>
       <v-row justify="center" align="center">
             <Form/>

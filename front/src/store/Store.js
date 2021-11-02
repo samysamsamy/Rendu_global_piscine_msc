@@ -29,6 +29,14 @@ const store = new Vuex.Store({
             state.user.username = param.username
             state.user.email = param.email
             state.user.isLoggedIn = true
+        },
+        DisconnectUser(state) {
+            state.user.id = -1
+            state.user.username = ""
+            state.user.email = ""
+            state.user.isConnected = false
+            state.user.isLoggedIn = false
+            state.user.imgAvatar = ""
         }
     }
 })
