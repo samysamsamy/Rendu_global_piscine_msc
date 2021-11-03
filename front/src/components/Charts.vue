@@ -1,29 +1,30 @@
 <template>
-  <v-card width="100%" height="98%">
-  <v-container>
-    <v-row class="size">
-        <canvas id="planet-chart"></canvas>
-    </v-row>
-    <v-row class="size">
-        <v-card elevation="6" style="margin: auto">
-          <v-card-title class="justify-center">CHART PANNEL</v-card-title>
-          <v-card-subtitle class="text-center">Selectionnez les informations que vous souhaitez voir</v-card-subtitle>
-          <v-card-subtitle class="text-center">ainsi que le type de graphique voulu</v-card-subtitle>
-          <v-card-actions>
-            <v-btn>clique salope</v-btn>
-            <v-btn>clique salope</v-btn>
-            <v-btn>clique salope</v-btn>
-            <v-btn>clique salope</v-btn>
-          </v-card-actions>
-        </v-card>
-    </v-row>
-  </v-container>
-  </v-card>
+  <v-container fill-height>
+    <v-tabs grow>
+      <v-tab v-on:click="PutLineChart" >Line Chart</v-tab>
+      <v-tab v-on:click="PutBarChart">Bar Chart</v-tab>
+      <v-tab v-on:click="PutPieChart">Pie Chart</v-tab>
+    </v-tabs>
+      <v-col class="fill-height">
+        <v-row align="center" justify="center">
+              <canvas style="max-height: 600px; max-width: 80%" id="planet-chart"></canvas>
+        </v-row>
+        <v-row>
+            <v-card elevation="6" style="margin: auto">
+              <v-card-title class="justify-center">CHART PANNEL</v-card-title>
+              <v-card-actions>
+                <v-btn>Line chart</v-btn>
+                <v-btn>Bar chart</v-btn>
+              </v-card-actions>
+            </v-card>
+        </v-row>
+      </v-col>
+    </v-container>
 </template>
 
 <script>
 import {Chart, registerables} from 'chart.js'
-import BarChart from "../ChartsType";
+import {BarChart, LineChart, PieChart} from "../ChartsType";
 
 Chart.register(...registerables)
 
@@ -31,21 +32,42 @@ export default {
   name: 'ChartBasic',
   data() {
     return {
-      DataChart : {}
+      DataChart : {},
+      mychart : null
+    }
+  },
+  methods : {
+    PutLineChart() {
+      this.DataChart = LineChart
+      this.mychart.destroy()
+      const ctx = document.getElementById('planet-chart');
+      this.mychart = new Chart(ctx, this.DataChart);
+    },
+    PutBarChart() {
+      this.DataChart = BarChart
+      this.mychart.destroy()
+      const ctx = document.getElementById('planet-chart');
+      this.mychart = new Chart(ctx, this.DataChart);
+    },
+    PutPieChart() {
+      this.DataChart = PieChart
+      this.mychart.destroy()
+      const ctx = document.getElementById('planet-chart');
+      this.mychart = new Chart(ctx, this.DataChart);
     }
   },
   mounted() {
-    this.DataChart = BarChart
+    this.DataChart = LineChart
     const ctx = document.getElementById('planet-chart');
-    new Chart(ctx, this.DataChart);
+    this.mychart = new Chart(ctx, this.DataChart);
   }
 }
 </script>
 
 <style>
 .size {
-  width: 50vw;
-  min-width: 400px;
   margin: auto;
+  max-height: 30vh;
+  max-width: 30vw;
 }
 </style>

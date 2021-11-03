@@ -14,6 +14,7 @@ defmodule TodolistWeb.Router do
     scope "/clocks" do
       get "/:userID", ClockController, :show
       post "/:userID", ClockController, :create
+      put "/:userID", ClockController, :update
     end
 
     scope "/workingtimes" do

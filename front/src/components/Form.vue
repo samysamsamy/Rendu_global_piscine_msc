@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-layout wrap>
-      <v-flex sm12 md6 offset-md3>
+      <v-flex sm12 md6 offset-md3 style="justify-content: center">
         <v-card elevation="4" light tag="section">
           <v-card-title>
             <v-layout align-center justify-space-between>
@@ -33,8 +33,8 @@
               Register
             </v-btn>
             <v-spacer></v-spacer>
-            <v-btn color="info" :large="$vuetify.breakpoint.smAndUp">
-              <v-icon left @click="SignIn">mdi-lock</v-icon>
+            <v-btn @click="SignIn" color="info" :large="$vuetify.breakpoint.smAndUp">
+              <v-icon left >mdi-lock</v-icon>
               Login
             </v-btn>
           </v-card-actions>

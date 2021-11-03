@@ -1,22 +1,14 @@
 <template>
-  <v-card width="100%" height="98%">
-    <v-container fill-height fluid>
-      <div class="centerVertical">
-        <v-row justify="center" align="center">
-          <v-card-title> {{this.$store.state.user.isLoggedIn === true ? "Vous êtes connecté" : "Veuillez vous connecter pour accéder à l'application"}}</v-card-title>
-        </v-row>
-        <v-row justify="center" align="center">
-        <v-card-actions v-if="this.$store.state.user.isLoggedIn === false">
-            <v-btn v-on:click="Redirect">Se connecter</v-btn>
-          </v-card-actions>
-          <v-card-actions v-else>
-            <v-btn v-on:click="Redirect">Accéder à mon profil</v-btn>
-            <v-btn v-on:click="Disconnexion">Se déconnecter</v-btn>
-          </v-card-actions>
-      </v-row>
-      </div>
+    <v-container fill-height fluid align="center" class="justify-center">
+        <v-sheet align="center" color="white" elevation="5" height="30%" width="30%">
+          <v-col justify="space-between">
+            <p>{{this.$store.state.user.isLoggedIn === false ? "Veuillez vous connecter" : "Bonjour " + this.$store.state.user.username}}</p>
+            <v-btn style="margin: 10px" v-on:click="Redirect">{{this.$store.state.user.isLoggedIn === false ? "Se connecter" : "Aller sur votre page utilisateur"}}</v-btn>
+            <v-btn style="margin: 10px" v-if="this.$store.state.user.isLoggedIn" v-on:click="Disconnexion"> Déconnexion </v-btn>
+            <v-btn style="margin: 10px" v-if="this.$store.state.user.isLoggedIn" v-on:click="Pointer"> Pointer </v-btn>
+          </v-col>
+        </v-sheet>
     </v-container>
-  </v-card>
 </template>
 
 <script>
@@ -25,7 +17,18 @@ export default {
   name: "Home",
   components : {
   },
+  data () {
+    return {
+      knowledge : 33
+    }
+  },
   methods: {
+    Pointer() {
+      if (this.$store.state.user.isConnected === false)
+      {
+        this.$store.commit("pointer")
+      }
+    },
     Redirect() {
       if (this.$store.state.user.isLoggedIn === true) {
         this.$router.push("/User")
@@ -43,8 +46,13 @@ export default {
 </script>
 
 <style scoped>
-.centerVertical{
-  margin: auto;
+.rowmargin {
 }
+.sheetstyle {
+  width: 40%;
+  height: 150px;
+  margin: 50px;
+}
+
 
 </style>

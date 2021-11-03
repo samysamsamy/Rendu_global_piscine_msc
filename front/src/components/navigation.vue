@@ -1,11 +1,8 @@
 <template>
-  <v-card height="97vh"
-  max-width="13vw"
-  min-width="13vw">
     <v-navigation-drawer
-        absolute
         permanent
         left
+        app
     >
       <template v-slot:prepend>
         <v-list-item two-line>
@@ -47,7 +44,6 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-  </v-card>
 </template>
 
 <script>

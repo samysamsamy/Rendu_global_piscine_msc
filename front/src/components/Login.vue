@@ -1,12 +1,7 @@
 <template>
-  <v-card width="100%" height="98%">
-    <v-container fill-height fluid>
-      <v-row justify="center" align="center">
-            <Form/>
-      </v-row>
-
-    </v-container>
-  </v-card>
+  <v-container fill-height fluid>
+    <Form/>
+  </v-container>
 </template>
 
 <script>

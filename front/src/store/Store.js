@@ -17,6 +17,9 @@ const store = new Vuex.Store({
         }
     },
     mutations: {
+        pointer (state) {
+            state.user.isConnected = !state.user.isConnected
+        },
         increment (state) {
             state.count++
         },

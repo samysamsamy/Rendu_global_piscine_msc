@@ -27,7 +27,7 @@ defmodule TodolistWeb.WorkingtimeController do
     with {:ok, %Workingtime{} = workingtime} <- Schemas.create_workingtime(%{user_id: id, end: workingtime_params["end"], start: workingtime_params["start"]}) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", Routes.workingtime_path(conn, :show, workingtime))
+      |> put_resp_header("location", Routes.workingtime_path(conn, :index, workingtime))
       |> render("show.json", workingtime: workingtime)
     end
   end

@@ -1,18 +1,15 @@
 <template>
   <v-app>
+    <navigation/>
     <v-main>
-      <v-container fluid >
-        <div style="width: 100vw;">
-        <v-row>
-          <v-col cols="12" md="2">
-            <navigation/>
+      <v-container fluid fill-height >
+        <v-row class="fill-height">
+          <v-col>
+            <v-sheet class="fill-height" elevation="10">
+              <router-view></router-view>
+            </v-sheet>
           </v-col>
-          <v-col cols="12" md="10">
-            <router-view></router-view>
-          </v-col>
-
         </v-row>
-        </div>
       </v-container>
     </v-main>
   </v-app>
